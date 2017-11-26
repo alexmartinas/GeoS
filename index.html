@@ -7,10 +7,211 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="container">
             <div class="filters">
+                <div class="title">Filters</div>
+
+                <div class="filters-container">
+                    <!--source filter-->
+                    <div class="filter">
+                        <div href="#" class="collapse-filter">Source
+                            <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                        </div>
+                        <div class="filter-options">
+                            <label for="500px">
+                                <input type="checkbox" checked id="500px">
+                                500px
+                            </label>
+
+                            <label for="flickr">
+                                <input type="checkbox" id="flickr">
+                                Flickr
+                            </label>
+
+                            <label for="instagram">
+                                <input type="checkbox" id="instagram">
+                                Instagram
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--area filter-->
+                    <div class="filter">
+                        <div href="#" class="collapse-filter">Area
+                            <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                        </div>
+                        <div class="filter-options">
+                            <label for="europe">
+                                <input type="checkbox" checked id="europe">
+                                Europe
+                            </label>
+
+                            <label for="asia">
+                                <input type="checkbox" id="asia">
+                                Asia
+                            </label>
+
+                            <label for="africa">
+                                <input type="checkbox" id="africa">
+                                Africa
+                            </label>
+
+                            <label for="south-america">
+                                <input type="checkbox" id="south-america">
+                                South America
+                            </label>
+
+                            <label for="north-america">
+                                <input type="checkbox" id="north-america">
+                                North America
+                            </label>
+
+                            <label for="australia">
+                                <input type="checkbox" id="australia">
+                                Australia
+                            </label>
+
+                            <label for="antarctica">
+                                <input type="checkbox" id="antarctica">
+                                Antarctica
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--category filter-->
+                    <div class="filter">
+                        <div href="#" class="collapse-filter">Category
+                            <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                        </div>
+                        <div class="filter-options">
+                            <label for="uncategorized">
+                                <input type="checkbox" checked id="uncategorized">
+                                Uncategorized
+                            </label>
+
+                            <label for="abstract">
+                                <input type="checkbox" id="abstract">
+                                Abstract
+                            </label>
+
+                            <label for="aerial">
+                                <input type="checkbox" id="aerial">
+                                Aerial
+                            </label>
+
+                            <label for="animals">
+                                <input type="checkbox" id="animals">
+                                Animals
+                            </label>
+
+                            <label for="celebrities">
+                                <input type="checkbox" id="celebrities">
+                                Celebrities
+                            </label>
+
+                            <label for="city-and-architecture">
+                                <input type="checkbox" id="city-and-architecture">
+                                City and Architecture
+                            </label>
+
+                            <label for="comercial">
+                                <input type="checkbox" id="comercial">
+                                Comercial
+                            </label>
+
+                            <label for="family">
+                                <input type="checkbox" id="family">
+                                Family
+                            </label>
+
+                            <label for="fashion">
+                                <input type="checkbox" id="fashion">
+                                Fashion
+                            </label>
+
+                            <label for="film">
+                                <input type="checkbox" id="film">
+                                Film
+                            </label>
+
+                            <label for="fine-art">
+                                <input type="checkbox" id="fine-art">
+                                Fine-Art
+                            </label>
+
+                            <label for="food">
+                                <input type="checkbox" id="food">
+                                Food
+                            </label>
+
+                            <label for="landscapes">
+                                <input type="checkbox" id="landscapes">
+                                Landscapes
+                            </label>
+
+                            <label for="nature">
+                                <input type="checkbox" id="nature">
+                                Nature
+                            </label>
+
+                            <label for="night">
+                                <input type="checkbox" id="night">
+                                Night
+                            </label>
+
+                            <label for="nude">
+                                <input type="checkbox" id="nude">
+                                Nude
+                            </label>
+
+                            <label for="people">
+                                <input type="checkbox" id="people">
+                                People
+                            </label>
+
+                            <label for="sport">
+                                <input type="checkbox" id="sport">
+                                Sport
+                            </label>
+
+                            <label for="travel">
+                                <input type="checkbox" id="travel">
+                                Travel
+                            </label>
+
+                            <label for="wedding">
+                                <input type="checkbox" id="wedding">
+                                Wedding
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--time filter-->
+                    <div class="filter">
+                        <div href="#" class="collapse-filter">Posted
+                            <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                        </div>
+                        <div class="filter-options">
+                            <label for="today">
+                                <input type="checkbox" checked id="today">
+                                Today
+                            </label>
+
+                            <label for="yesterday">
+                                <input type="checkbox" id="yesterday">
+                                Yesterday
+                            </label>
+
+                            <label for="last-week">
+                                <input type="checkbox" id="last-week">
+                                Last week
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="map-container">
