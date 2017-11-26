@@ -26,64 +26,6 @@ body{
     height: 6.22rem;
 }
 
-.filters {
-    width: 17rem;
-    height: 100%;
-    max-width: 17rem;
-    background-color: #e9ebee;
-    position: relative;
-    min-width: 17rem;
-    overflow: hidden;
-}
-
-.filters-container{
-    overflow: auto;
-    max-height: 85%;
-}
-
-.filters .title{
-    font-size: 3rem;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    position: relative;
-    background-color: #22a7f0;
-    color: #0e226f;
-}
-
-.filter {
-    box-shadow: 0 2px 12px -4px rgba(0,0,0,.1);
-    margin: 0.5rem;
-    border: 0;
-    padding-bottom: 1px;
-    border-radius: 3px;
-    background-color: #fff;
-}
-
-.filter .collapse-filter{
-    text-align: center;
-    font-size:1.5rem;
-    position:relative;
-}
-
-.filter-options{
-    margin: 1rem;
-    max-height: 10rem;
-    overflow-y: auto;
-}
-
-.filter-options > label{
-    display: block;
-    position: relative;
-}
-
-.collapse-filter .collapse-button {
-    position: absolute;
-    right: 0.5rem;
-    font-size: 1.3rem;
-    top: 0.5rem;
-}
-
 .map-container {
     width: 80%;
     height: 100%;
@@ -92,13 +34,6 @@ body{
 
 #map{
     height: 87%;
-}
-
-.selected-filters{
-    position: relative;
-    height: 100px;
-    width: 100%;
-    background: #98999b;
 }
 
 #fullscreen {
