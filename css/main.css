@@ -21,6 +21,11 @@ body{
     overflow: hidden;
 }
 
+.logo{
+    width: 100%;
+    height: 6.22rem;
+}
+
 .filters {
     width: 17rem;
     height: 100%;
@@ -33,7 +38,7 @@ body{
 
 .filters-container{
     overflow: auto;
-    max-height: 90%;
+    max-height: 85%;
 }
 
 .filters .title{
