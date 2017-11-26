@@ -21,22 +21,25 @@ body{
 }
 
 .filters {
-    width: 30%;
+    width: 20%;
     height: 100%;
     background-color: #e9ebee;
 }
 
 .map-container {
-    width: 70%;
+    width: 80%;
     height: 100%;
     background-color: red;
 }
 
-.map{
-
+#map{
+    height: 87%;
 }
 
 .selected-filters{
-
+    position: relative;
+    height: 100px;
+    width: 100%;
+    background: #98999b;
 }
 
