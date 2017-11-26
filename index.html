@@ -12,7 +12,7 @@
     <body>
         <div class="container">
             <div class="filters">
-                <div class="title">Filters</div>
+                    <img class="logo" src="img/logo.jpg">
 
                 <div class="filters-container">
                     <!--source filter-->
@@ -45,7 +45,7 @@
                         </div>
                         <div class="filter-options">
                             <label for="europe">
-                                <input type="checkbox" checked id="europe">
+                                <input type="checkbox"  id="europe">
                                 Europe
                             </label>
 
@@ -88,7 +88,7 @@
                         </div>
                         <div class="filter-options">
                             <label for="uncategorized">
-                                <input type="checkbox" checked id="uncategorized">
+                                <input type="checkbox"  id="uncategorized">
                                 Uncategorized
                             </label>
 
@@ -189,6 +189,49 @@
                         </div>
                     </div>
 
+                    <!--dimensions filter-->
+                    <div class="filter">
+                        <div href="#" class="collapse-filter">Area
+                            <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                        </div>
+                        <div class="filter-options">
+                            <label for="70px">
+                                <input type="checkbox" checked id="70px">
+                                70px x 70px
+                            </label>
+
+                            <label for="140px">
+                                <input type="checkbox"  id="140px">
+                                140px x 140px
+                            </label>
+
+                            <label for="280px">
+                                <input type="checkbox"  id="280px">
+                                280px x 280px
+                            </label>
+
+                            <label for="100px">
+                                <input type="checkbox"  id="100px">
+                                100px x 100px
+                            </label>
+
+                            <label for="200px">
+                                <input type="checkbox"  id="200px">
+                                200px x 200px
+                            </label>
+
+                            <label for="440px">
+                                <input type="checkbox"  id="440px">
+                                440px x 440px
+                            </label>
+
+                            <label for="600px">
+                                <input type="checkbox"  id="600px">
+                                600px x 600px
+                            </label>
+                        </div>
+                    </div>
+
                     <!--time filter-->
                     <div class="filter">
                         <div href="#" class="collapse-filter">Posted
@@ -196,7 +239,7 @@
                         </div>
                         <div class="filter-options">
                             <label for="today">
-                                <input type="checkbox" checked id="today">
+                                <input type="checkbox"  id="today">
                                 Today
                             </label>
 
@@ -216,13 +259,16 @@
             </div>
             <div class="map-container">
                 <div class="selected-filters">
+                    <div class="title">
 
+                    </div>
                 </div>
                 <div id="map">
                 </div>
             </div>
         </div>
         <script src="js/main.js"></script>
+        <script src="js/filters.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2ser3bVL0Tyh7ESutb0DjBf2UN8KKTA&callback=initMap"
                 type="text/javascript"></script>
     </body>
