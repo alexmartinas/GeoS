@@ -36,9 +36,8 @@ function initMap() {
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 var content = '<b>Source:</b> 500px<br>'+
-                              '<b>Location:</b> Australia<br>' +
-                              '<img width="100" src="../GeoS/img/Pictures/sample_img1.jpg"/><br>'+
-                              '<a href="https://500px.com/">Open image</a>'
+                              '<b>Location:</b> Australia<br><br>' +
+                              '<img onclick="on()" width="100" src="../GeoS/img/Pictures/sample_img1.jpg"/><br>';
                 infowindow.setContent(content);
                 infowindow.open(map, marker);
             }
@@ -46,3 +45,11 @@ function initMap() {
     }
 }
 /*----------------------*/
+
+function on() {
+    document.getElementById("fullscreen").style.display = "block";
+}
+
+function off() {
+    document.getElementById("fullscreen").style.display = "none";
+}
