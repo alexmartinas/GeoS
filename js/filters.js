@@ -151,3 +151,31 @@ function removeSelectedFilter(id){
     elm.parentNode.removeChild(elm);
 }
 
+function closeFilters(){
+    var elm = document.getElementsByClassName("filters")[0];
+    elm.className = "filters filtersAnim";
+    elm = document.getElementById("close-filter-menu");
+    elm.style.display = "none";
+
+    elm = document.getElementsByClassName("map-container")[0];
+    elm.style.position = "absolute";
+    elm.style.width = "100%";
+
+    elm = document.getElementById("open-filters-menu");
+    elm.style.display = "block";
+}
+
+function openFilters(){
+    var elm = document.getElementsByClassName("filters")[0];
+    elm.className = "filters filtersAnim2";
+    elm = document.getElementById("close-filter-menu");
+    elm.style.display = "block";
+
+    elm = document.getElementsByClassName("map-container")[0];
+    elm.style.position = "relative";
+    elm.style.width = "83%";
+
+    elm = document.getElementById("open-filters-menu");
+    elm.style.display = "none";
+}
+
