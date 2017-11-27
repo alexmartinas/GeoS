@@ -25,7 +25,7 @@
         <div class="container">
             <!--filters-->
             <div class="filters">
-                    <img class="logo" src="img/logo.jpg">
+                    <img class="logo" src="img/logoPNG.png">
 
                 <div class="filters-container" onclick="addFilter(event)">
                     <!--source filter-->
@@ -33,21 +33,19 @@
                         <div href="#" class="collapse-filter">Source
                             <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                         </div>
+
+
                         <div class="filter-options">
-                            <label for="500px">
-                                <input data-filter="Source" type="checkbox" checked id="500px">
-                                500px
-                            </label>
+                            <input type="checkbox" id="500px"/>
+                            <label for="500px"><span></span>500px</label>
 
-                            <label for="flickr">
-                                <input data-filter="Source" type="checkbox" id="flickr">
-                                Flickr
-                            </label>
 
-                            <label for="instagram">
-                                <input data-filter="Source" type="checkbox" id="instagram">
-                                Instagram
-                            </label>
+                            <input type="checkbox" id="flickr"/>
+                            <label for="flickr"><span></span>Flickr</label>
+
+
+                            <input type="checkbox" id="instagram"/>
+                            <label for="instagram"><span></span>Instagram</label>
                         </div>
                     </div>
 
@@ -57,40 +55,28 @@
                             <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                         </div>
                         <div class="filter-options">
-                            <label for="europe">
-                                <input data-filter="Area" type="checkbox"  id="europe">
-                                Europe
-                            </label>
 
-                            <label for="asia">
-                                <input data-filter="Area" type="checkbox" id="asia">
-                                Asia
-                            </label>
+                            <input type="checkbox" id="europe"/>
+                            <label for="europe"><span></span>Europe</label>
 
-                            <label for="africa">
-                                <input data-filter="Area" type="checkbox" id="africa">
-                                Africa
-                            </label>
+                            <input type="checkbox" id="asia"/>
+                            <label for="asia"><span></span>Asia</label>
 
-                            <label for="south-america">
-                                <input data-filter="Area" type="checkbox" id="south-america">
-                                South America
-                            </label>
+                            <input type="checkbox" id="africa"/>
+                            <label for="africa"><span></span>Africa</label>
 
-                            <label for="north-america">
-                                <input data-filter="Area" type="checkbox" id="north-america">
-                                North America
-                            </label>
+                            <input type="checkbox" id="south-america"/>
+                            <label for="south-america"><span></span>South America</label>
 
-                            <label for="australia">
-                                <input data-filter="Area" type="checkbox" id="australia">
-                                Australia
-                            </label>
+                            <input type="checkbox" id="north-america"/>
+                            <label for="north-america"><span></span>North America</label>
 
-                            <label for="antarctica">
-                                <input data-filter="Area" type="checkbox" id="antarctica">
-                                Antarctica
-                            </label>
+                            <input type="checkbox" id="australia"/>
+                            <label for="australia"><span></span>Australia</label>
+
+                            <input type="checkbox" id="antarctica"/>
+                            <label for="antarctica"><span></span>Antarctica</label>
+
                         </div>
                     </div>
 
@@ -100,105 +86,67 @@
                             <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                         </div>
                         <div class="filter-options">
-                            <label for="uncategorized">
-                                <input data-filter="Category" type="checkbox"  id="uncategorized">
-                                Uncategorized
-                            </label>
 
-                            <label for="abstract">
-                                <input data-filter="Category" type="checkbox" id="abstract">
-                                Abstract
-                            </label>
+                            <input type="checkbox" id="uncategorized"/>
+                            <label for="uncategorized"><span></span>Uncategorized</label>
 
-                            <label for="aerial">
-                                <input data-filter="Category" type="checkbox" id="aerial">
-                                Aerial
-                            </label>
+                            <input type="checkbox" id="abstract"/>
+                            <label for="abstract"><span></span>Abstract</label>
 
-                            <label for="animals">
-                                <input data-filter="Category" type="checkbox" id="animals">
-                                Animals
-                            </label>
+                            <input type="checkbox" id="aerial"/>
+                            <label for="aerial"><span></span>Aerial</label>
 
-                            <label for="celebrities">
-                                <input data-filter="Category" type="checkbox" id="celebrities">
-                                Celebrities
-                            </label>
+                            <input type="checkbox" id="animals"/>
+                            <label for="animals"><span></span>Animals</label>
 
-                            <label for="city-and-architecture">
-                                <input data-filter="Category" type="checkbox" id="city-and-architecture">
-                                City and Architecture
-                            </label>
+                            <input type="checkbox" id="celebrities"/>
+                            <label for="celebrities"><span></span>Celebrities</label>
 
-                            <label for="comercial">
-                                <input data-filter="Category" type="checkbox" id="comercial">
-                                Comercial
-                            </label>
+                            <input type="checkbox" id="city-and-architecture"/>
+                            <label for="city-and-architecture"><span></span>City and Architecture</label>
 
-                            <label for="family">
-                                <input data-filter="Category" type="checkbox" id="family">
-                                Family
-                            </label>
+                            <input type="checkbox" id="comercial"/>
+                            <label for="comercial"><span></span>Comercial</label>
 
-                            <label for="fashion">
-                                <input data-filter="Category" type="checkbox" id="fashion">
-                                Fashion
-                            </label>
+                            <input type="checkbox" id="family"/>
+                            <label for="family"><span></span>Family</label>
 
-                            <label for="film">
-                                <input data-filter="Category" type="checkbox" id="film">
-                                Film
-                            </label>
+                            <input type="checkbox" id="fashion"/>
+                            <label for="fashion"><span></span>Fashion</label>
 
-                            <label for="fine-art">
-                                <input data-filter="Category" type="checkbox" id="fine-art">
-                                Fine-Art
-                            </label>
+                            <input type="checkbox" id="film"/>
+                            <label for="film"><span></span>Film</label>
 
-                            <label for="food">
-                                <input data-filter="Category" type="checkbox" id="food">
-                                Food
-                            </label>
+                            <input type="checkbox" id="fine-art"/>
+                            <label for="fine-art"><span></span>Fine-Art</label>
 
-                            <label for="landscapes">
-                                <input data-filter="Category" type="checkbox" id="landscapes">
-                                Landscapes
-                            </label>
+                            <input type="checkbox" id="food"/>
+                            <label for="food"><span></span>Food</label>
 
-                            <label for="nature">
-                                <input data-filter="Category" type="checkbox" id="nature">
-                                Nature
-                            </label>
+                            <input type="checkbox" id="landscapes"/>
+                            <label for="landscapes"><span></span>Landscapes</label>
 
-                            <label for="night">
-                                <input data-filter="Category" type="checkbox" id="night">
-                                Night
-                            </label>
+                            <input type="checkbox" id="nature"/>
+                            <label for="nature"><span></span>Nature</label>
 
-                            <label for="nude">
-                                <input data-filter="Category" type="checkbox" id="nude">
-                                Nude
-                            </label>
+                            <input type="checkbox" id="night"/>
+                            <label for="night"><span></span>Night</label>
 
-                            <label for="people">
-                                <input data-filter="Category" type="checkbox" id="people">
-                                People
-                            </label>
+                            <input type="checkbox" id="nude"/>
+                            <label for="nude"><span></span>Nude</label>
 
-                            <label for="sport">
-                                <input data-filter="Category" type="checkbox" id="sport">
-                                Sport
-                            </label>
+                            <input type="checkbox" id="people"/>
+                            <label for="people"><span></span>People</label>
 
-                            <label for="travel">
-                                <input data-filter="Category" type="checkbox" id="travel">
-                                Travel
-                            </label>
+                            <input type="checkbox" id="sport"/>
+                            <label for="sport"><span></span>Sport</label>
 
-                            <label for="wedding">
-                                <input data-filter="Category" type="checkbox" id="wedding">
-                                Wedding
-                            </label>
+                            <input type="checkbox" id="travel"/>
+                            <label for="travel"><span></span>Travel</label>
+
+                            <input type="checkbox" id="wedding"/>
+                            <label for="wedding"><span></span>Wedding</label>
+
                         </div>
                     </div>
 
@@ -208,40 +156,26 @@
                             <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                         </div>
                         <div class="filter-options">
-                            <label for="70px">
-                                <input data-filter="Dimension" type="checkbox" checked id="70px">
-                                70px x 70px
-                            </label>
+                            <input type="checkbox" id="70px"/>
+                            <label for="70px"><span></span>70px x 70px</label>
 
-                            <label for="140px">
-                                <input data-filter="Dimension" type="checkbox"  id="140px">
-                                140px x 140px
-                            </label>
+                            <input type="checkbox" id="140px"/>
+                            <label for="140px"><span></span>140px x 140px</label>
 
-                            <label for="280px">
-                                <input data-filter="Dimension" type="checkbox"  id="280px">
-                                280px x 280px
-                            </label>
+                            <input type="checkbox" id="280px"/>
+                            <label for="280px"><span></span>280px x 280px</label>
 
-                            <label for="100px">
-                                <input data-filter="Dimension" type="checkbox"  id="100px">
-                                100px x 100px
-                            </label>
+                            <input type="checkbox" id="100px"/>
+                            <label for="100px"><span></span>100px x 100px</label>
 
-                            <label for="200px">
-                                <input data-filter="Dimension" type="checkbox"  id="200px">
-                                200px x 200px
-                            </label>
+                            <input type="checkbox" id="200px"/>
+                            <label for="200px"><span></span>200px x 200px</label>
 
-                            <label for="440px">
-                                <input data-filter="Dimension" type="checkbox"  id="440px">
-                                440px x 440px
-                            </label>
+                            <input type="checkbox" id="440px"/>
+                            <label for="440px"><span></span>440px x 440px</label>
 
-                            <label for="600px">
-                                <input data-filter="Dimension" type="checkbox"  id="600px">
-                                600px x 600px
-                            </label>
+                            <input type="checkbox" id="600px"/>
+                            <label for="600px"><span></span>600px x 600px</label>
                         </div>
                     </div>
 
@@ -251,20 +185,16 @@
                             <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                         </div>
                         <div class="filter-options">
-                            <label for="today">
-                                <input data-filter="Time" type="checkbox"  id="today">
-                                Today
-                            </label>
 
-                            <label for="yesterday">
-                                <input data-filter="Time" type="checkbox" id="yesterday">
-                                Yesterday
-                            </label>
+                            <input type="checkbox" id="today"/>
+                            <label for="today"><span></span>Today</label>
 
-                            <label for="last-week">
-                                <input data-filter="Time" type="checkbox" id="last-week">
-                                Last week
-                            </label>
+                            <input type="checkbox" id="yesterday"/>
+                            <label for="yesterday"><span></span>Yesterday</label>
+
+                            <input type="checkbox" id="last-week"/>
+                            <label for="last-week"><span></span>Last week</label>
+
                         </div>
                     </div>
                 </div>
@@ -277,7 +207,8 @@
                 <!--selected filters-->
                 <div class="selected-filters">
                     <div class="title">
-                        Selected Filters
+                        <i class="fa fa-filter" style="color:#7a449b" aria-hidden="true"></i>
+                        Selected Filters:
                     </div>
                     <div class="selected-filters-container">
                         <div class="selected-filter">

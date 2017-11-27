@@ -78,6 +78,7 @@
     position: relative;
     height: 2.2rem;
     padding-left: 0.5rem;
+    background: white;
 }
 
 .selected-filters-container{
@@ -95,12 +96,17 @@
     right: 5px;
     top: 5px;
     cursor: pointer;
+    transition: all 0.4s;
+}
+.remove-filter:hover {
+    color: #7a449b;
+    transform: rotate(180deg);
 }
 
 .title {
-    color: #7c795d;
-    font-family: 'Trocchi', serif;
-    font-size: 2rem;
+    color: #363636;
+    font-family: 'Verdana', serif;
+    font-size: 1.8rem;
     font-weight: normal;
     line-height: 48px;
     margin: 0 0 0 0;
