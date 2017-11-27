@@ -20,7 +20,7 @@ function initMap() {
     var marker, i;
 
     var image = new google.maps.MarkerImage(
-        '../GeoS/img/photo-icon.png',
+        '/img/photo-icon.png',
         new google.maps.Size(40, 40),
         new google.maps.Point(0, 0),
         new google.maps.Point(20, 20),
@@ -37,7 +37,7 @@ function initMap() {
             return function() {
                 var content = '<b>Source:</b> 500px<br>'+
                               '<b>Location:</b> Australia<br><br>' +
-                              '<img onclick="on()" width="100" src="../GeoS/img/Pictures/sample_img1.jpg"/><br>';
+                              '<img onclick="on()" width="100" src="/img/Pictures/sample_img1.jpg"/><br>';
                 infowindow.setContent(content);
                 infowindow.open(map, marker);
             }
