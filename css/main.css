@@ -235,7 +235,7 @@ and (min-width : 1224px) {
 
 /* Large screens ----------- */
 @media only screen
-and (min-width : 1824px) {
+and (min-width : 1368px) {
     /* Styles */
     .container {
         height: 47rem;
