@@ -11,7 +11,7 @@ html {
 
 .container{
     display: flex;
-    height: 39rem;
+    height: 100vh;
     position: relative;
     overflow: hidden;
 }
@@ -224,20 +224,19 @@ and (orientation : portrait) {
     /* Styles */
 }
 
-/* Desktops and laptops ----------- */
+/* iPads pro (portrait) ----------- */
 @media only screen
-and (min-width : 1224px) {
+and (min-device-width : 1024px)
+and (max-device-width : 1366px)
+and (orientation : portrait) {
     /* Styles */
-    .container {
-        height: 39rem;
-    }
 }
 
-/* Large screens ----------- */
+/* iPads pro (landscape) ----------- */
 @media only screen
-and (min-width : 1368px) {
+and (min-device-width : 1366px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
     /* Styles */
-    .container {
-        height: 47rem;
-    }
+
 }
