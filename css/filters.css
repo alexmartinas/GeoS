@@ -44,6 +44,25 @@
     overflow-y: auto;
 }
 
+
+.filterAnimation {
+    z-index: 300;
+    -webkit-animation-name: cssAnimation3;
+    -webkit-animation-duration:1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes cssAnimation3 {
+    from {
+        height: auto
+    }
+    to {
+        height: 0;
+        display: none;
+    }
+}
+
 .filter-options > label{
     display: block;
     position: relative;

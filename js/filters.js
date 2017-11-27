@@ -3,11 +3,15 @@ function collapseFilter(event){
     var buttonClass = target.className;
     if (buttonClass === "fa fa-chevron-down collapse-button"){
         target.className = "fa fa-chevron-right collapse-button";
-        target.parentNode.nextElementSibling.style.display = "none";
+        target.parentNode.nextElementSibling.style.opacity = "0";
+        target.parentNode.nextElementSibling.style.maxHeight = "0";
+        target.parentNode.nextElementSibling.style.marginBottom = "-10px";
     } else {
         target.className = "fa fa-chevron-down collapse-button";
-        target.parentNode.nextElementSibling.style.display = "block";
-
+        target.parentNode.nextElementSibling.style.opacity = "1";
+        target.parentNode.nextElementSibling.style.maxHeight = "500px";
+        target.parentNode.nextElementSibling.style.marginBottom = "15px";
+        target.parentNode.nextElementSibling.style.transition = "all 1s ease";
     }
 
 }

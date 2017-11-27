@@ -46,7 +46,9 @@ body{
     bottom: 0;
     background-color: rgba(0,0,0,0.85);
     z-index: 2;
+
 }
+
 #fullscreen img{
     position: absolute;
     height: 75%;
@@ -55,7 +57,24 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
+    -webkit-animation-name: cssAnimation5;
+    -webkit-animation-duration:0.4s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
 }
+
+@-webkit-keyframes cssAnimation5 {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .image-title
 {
     text-align: center;
