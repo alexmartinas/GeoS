@@ -39,6 +39,7 @@ function addFilter(event){
                 posted.push(filterName);
             }
             addSelectedFilter(filter, filterName);
+            target.setAttribute('data-type','checked');
         } else {
             var index;
             if (filter === 'Source'){
@@ -57,11 +58,30 @@ function addFilter(event){
                 index = source.indexOf(filterName);
                 posted.splice(index, 1);
             }
-            removeSelectedFilter(filter + "-" + filterName);
+            removeSelectedFilter(filter + ":" + filterName);
+            target.setAttribute('data-type','unchecked');
         }
 
+        addRemoveAllButton();
         console.log(source,area,category,posted,dimension);
 
+    }
+}
+
+function addRemoveAllButton(){
+    var filters = source.length + area.length + category.length + posted.length + dimension. length;
+    //create remove all filters button
+    if (filters === 1 && !document.getElementById("removeAllFilters")){
+        var container = document.getElementById("selectedFilters");
+        var a = document.createElement("A");
+        a.className = "remove-all-filters";
+        a.href = '#'
+        a.id = "removeAllFilters";
+        a.textContent = "Remove all filters";
+        a.style.order = 9999;
+        container.appendChild(a);
+    } else if(filters === 0){
+        removeSelectedFilter("removeAllFilters");
     }
 }
 
@@ -69,8 +89,8 @@ function addSelectedFilter(type,filter){
     var container = document.getElementById("selectedFilters");
     var div = document.createElement("DIV");
     div.className = "selected-filter";
-    div.id = type + "-" + filter;
-    div.textContent = filter;
+    div.id = type + ":" + filter;
+    div.textContent = type + ":" + filter;
     var i = document.createElement('I');
     i.className = "fa fa-close remove-filter";
     div.appendChild(i);
@@ -79,10 +99,12 @@ function addSelectedFilter(type,filter){
 
 function removeFilter(event){
     var target = event.target;
+
+    //remove single filter
     if (target.tagName === "I"){
         var id = target.parentNode.id;
-        var filter = id.split('-')[0];
-        var filterName = id.split('-')[1];
+        var filter = id.split(':')[0];
+        var filterName = id.split(':')[1];
         document.getElementById(filterName.toLowerCase()).checked = false;
         var index;
         if (filter === 'Source'){
@@ -101,8 +123,25 @@ function removeFilter(event){
             index = source.indexOf(filterName);
             posted.splice(index, 1);
         }
-
         removeSelectedFilter(id);
+        addRemoveAllButton();
+
+    //remove all filters
+    } if (target.tagName === 'A'){
+        source = [];
+        area = [];
+        category = [];
+        posted = [];
+        dimension = [];
+        var container = document.getElementById("filtersContainer");
+        input = container.querySelector("input[data-type='checked']");
+        while (input) {
+            input.checked = false;
+            input.setAttribute('data-type','unchecked');
+            input = container.querySelector("input[data-type='checked']");
+        }
+        container = document.getElementById("selectedFilters");
+        container.innerHTML = "";
     }
 
 }
@@ -111,3 +150,4 @@ function removeSelectedFilter(id){
     var elm  = document.getElementById(id);
     elm.parentNode.removeChild(elm);
 }
+
