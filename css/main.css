@@ -11,7 +11,7 @@ html {
 
 .container{
     display: flex;
-    height: 47rem;
+    height: 39rem;
     position: relative;
     overflow: hidden;
 }
@@ -122,6 +122,7 @@ body{
     display: block;
     margin: 0 auto;
 }
+
 .getting-started-box p {
     margin: 25px 50px;
     font-size: 22px;
@@ -137,6 +138,7 @@ body{
 a {
     text-decoration: none;
 }
+
 .button {
     background-color: #7a449b;
     width: 250px;
@@ -156,14 +158,12 @@ a {
     width: 260px;
 }
 
-
 input[type="checkbox"] {
     display:none;
 }
 
 input[type="checkbox"] + label {
     color: #4b4b4b;
-
 }
 
 input[type="checkbox"] + label span {
@@ -179,4 +179,65 @@ input[type="checkbox"] + label span {
 input[type="checkbox"]:checked + label span {
     background:url(../img/check_radio_sheet.png) -19px top no-repeat;
 
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    /* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+    /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+    /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    /* Styles */
+    .container {
+        height: 39rem;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+    /* Styles */
+    .container {
+        height: 47rem;
+    }
 }
