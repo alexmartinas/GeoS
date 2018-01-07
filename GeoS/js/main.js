@@ -1,5 +1,27 @@
 
+
+//500px photos
+
+window.onload = function () {
+
+    _500px.init({
+        sdk_key: 'c4e4e7623c6b35f6b42acc1bbb261b685de19d76'
+    });
+    _500px.api('/photos/search', { geo: [44,56,'2300km'], image_size:2048, only:['Nude','Food'], was_featured_type:'fresh_week'}, function (response) {
+        if (response.success) {
+            displayPhotosFrom500px(response.data.photos);
+        } else {
+            alert("500px server is unavailable for the moment!")
+        }
+    });
+};
+
+function displayPhotosFrom500px(photos) {
+    console.log(photos)
+}
+
 /* Google Map */
+
 var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -20,7 +42,7 @@ function initMap() {
     var marker, i;
 
     var image = new google.maps.MarkerImage(
-        '/img/photo-icon.png',
+        '../GeoS/img/photo-icon.png',
         new google.maps.Size(40, 40),
         new google.maps.Point(0, 0),
         new google.maps.Point(20, 20),
@@ -37,7 +59,7 @@ function initMap() {
             return function() {
                 var content = '<b>Source:</b> 500px<br>'+
                               '<b>Location:</b> Australia<br><br>' +
-                              '<img onclick="on()" width="100" src="/img/Pictures/sample_img1.jpg"/><br>';
+                              '<img onclick="on()" width="100" src="../GeoS/img/Pictures/sample_img1.jpg"/><br>';
                 infowindow.setContent(content);
                 infowindow.open(map, marker);
             }

@@ -1,0 +1,261 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GeoS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/filters.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div id="fullscreen">
+            <div class="close-image" onclick="off()">Close</div>
+            <div class="image-title">
+                <h2> Title of image  </h2>
+                <span><b> Source Image:</b> 500px</span>
+            </div>
+            <img src="../GeoS/img/Pictures/sample_img1.jpg"/>
+            <div class="image-caption">
+                <a href="https://500px.com">Open source image</a>
+            </div>
+        </div>
+        <div class="container">
+            <!--filters-->
+            <div class="filters">
+                    <img class="logo" src="../GeoS/img/logoPNG.png">
+                    <span onclick="closeFilters()" id="close-filter-menu"> <i class="fa fa-window-close-o" aria-hidden="true"></i></span>
+                    <span onclick="openFilters()" id="open-filters-menu"> <i class="fa fa-filter" aria-hidden="true"></i> </span>
+
+                <div class="filter">
+                    <div href="#" class="collapse-filter">Search photos
+                    </div>
+
+                    <div class="search-input">
+                        <input title="tag" placeholder="Search for..." id="tag" data-filter="Tag" type="text"/>
+                        <button type="button" class="search-button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!--source filter-->
+                <div class="filter">
+                    <div  class="collapse-filter">Source
+                    </div>
+
+                    <div class="filter-options" onclick="displayFilters(event)">
+                        <input data-type='unchecked' name="source" data-filter="Source" checked type="radio" id="500px"/>
+                        <label for="500px"><span></span>500px</label>
+
+
+                        <input data-type='unchecked' name="source" data-filter="Source" type="radio" id="flickr"/>
+                        <label for="flickr"><span></span>Flickr</label>
+
+
+                        <input data-type='unchecked' name="source" data-filter="Source" type="radio" id="instagram"/>
+                        <label for="instagram"><span></span>Instagram</label>
+                    </div>
+                </div>
+
+                <div class="filters-container" id="filtersContainer" onclick="addFilter(event)">
+
+                    <div id="500px-filters">
+                        <!--feature filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Feature
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+
+                            <div class="filter-options">
+                                <input data-type='unchecked' name="feature" data-text="Feature:Popular" data-filter="was_featured_type" data-value="popular" type="radio" id="popular"/>
+                                <label for="popular"><span></span>Popular</label>
+
+                                <input data-type='unchecked' name="feature" data-text="Feature:Highest rated" data-filter="was_featured_type" data-value="highest_rated" type="radio" id="highest_rated"/>
+                                <label for="highest_rated"><span></span>Highest rated</label>
+
+                                <input data-type='unchecked' name="feature" data-text="Feature:Upcoming" data-filter="was_featured_type" data-value="upcoming" type="radio" id="upcoming"/>
+                                <label for="upcoming"><span></span>Upcoming</label>
+
+                                <input data-type='unchecked' name="feature" data-text="Feature:Fresh today" data-filter="was_featured_type" data-value="fresh_today" type="radio" id="fresh_today"/>
+                                <label for="fresh_today"><span></span>Fresh today</label>
+
+                                <input data-type='unchecked' name="feature" data-text="Feature:Fresh yesterday" data-filter="was_featured_type" data-value="fresh_yesterday" type="radio" id="fresh_yesterday"/>
+                                <label for="fresh_yesterday"><span></span>Fresh yesterday</label>
+
+                                <input data-type='unchecked' name="feature" data-text="Feature:Fresh week" data-filter="was_featured_type" data-value="fresh_week" type="radio" id="fresh_week"/>
+                                <label for="fresh_week"><span></span>Fresh week</label>
+
+                            </div>
+                        </div>
+
+                        <!--area filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Area
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div class="filter-options">
+
+                                <input name="area" data-type='unchecked' data-text="Area:Europe" data-filter="geo" data-value="54.87611,15.29297,1923322mi" type="radio" id="europe"/>
+                                <label for="europe"><span></span>Europe</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Asia" data-filter="geo" data-value="37.71859,84.02344,3733764mi" type="radio" id="asia"/>
+                                <label for="asia"><span></span>Asia</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Africa" data-filter="geo" data-value="-2.10890,18.98438,4623261mi" type="radio" id="africa"/>
+                                <label for="africa"><span></span>Africa</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:South America" data-filter="geo" data-value="-20.63278,-66.09375,3902238mi" type="radio" id="south-america"/>
+                                <label for="south-america"><span></span>South America</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:North America" data-filter="geo" data-value="-51.61862,-86.48438,3715679mi" type="radio" id="north-america"/>
+                                <label for="north-america"><span></span>North America</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Australia" data-filter="geo" data-value="-28.14950,135.70313,2334124mi" type="radio" id="australia"/>
+                                <label for="australia"><span></span>Australia</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Antarctica" data-filter="geo" data-value="-82.11838,59.76563,1883860mi" type="radio" id="antarctica"/>
+                                <label for="antarctica"><span></span>Antarctica</label>
+
+                            </div>
+                        </div>
+
+                        <!--category filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Category
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div class="filter-options">
+
+                                <input data-type='unchecked' data-text="Category:Uncategorized" data-filter="only" data-value="0" type="checkbox" id="uncategorized"/>
+                                <label for="uncategorized"><span></span>Uncategorized</label>
+
+                                <input data-type='unchecked' data-text="Category:Abstract" data-filter="only" data-value="10" type="checkbox" id="abstract"/>
+                                <label for="abstract"><span></span>Abstract</label>
+
+                                <input data-type='unchecked' data-text="Category:Aerial" data-filter="only" data-value="29" type="checkbox" id="aerial"/>
+                                <label for="aerial"><span></span>Aerial</label>
+
+                                <input data-type='unchecked' data-text="Category:Animals" data-filter="only" data-value="11" type="checkbox" id="animals"/>
+                                <label for="animals"><span></span>Animals</label>
+
+                                <input data-type='unchecked' data-text="Category:Celebrities" data-filter="only" data-value="1" type="checkbox" id="celebrities"/>
+                                <label for="celebrities"><span></span>Celebrities</label>
+
+                                <input data-type='unchecked' data-text="Category:City and Architecture" data-filter="only" data-value="9" type="checkbox" id="city-and-architecture"/>
+                                <label for="city-and-architecture"><span></span>City and Architecture</label>
+
+                                <input data-type='unchecked' data-text="Category:Comercial" data-filter="only" data-value="15" type="checkbox" id="comercial"/>
+                                <label for="comercial"><span></span>Comercial</label>
+
+                                <input data-type='unchecked' data-text="Category:Family" data-filter="only" data-value="20" type="checkbox" id="family"/>
+                                <label for="family"><span></span>Family</label>
+
+                                <input data-type='unchecked' data-text="Category:Fashion" data-filter="only" data-value="14" type="checkbox" id="fashion"/>
+                                <label for="fashion"><span></span>Fashion</label>
+
+                                <input data-type='unchecked' data-text="Category:Film" data-filter="only" data-value="2" type="checkbox" id="film"/>
+                                <label for="film"><span></span>Film</label>
+
+                                <input data-type='unchecked' data-text="Category:Fine Art" data-filter="only" data-value="24" type="checkbox" id="fine-art"/>
+                                <label for="fine-art"><span></span>Fine Art</label>
+
+                                <input data-type='unchecked' data-text="Category:Food" data-filter="only" data-value="23" type="checkbox" id="food"/>
+                                <label for="food"><span></span>Food</label>
+
+                                <input data-type='unchecked' data-text="Category:Landscapes" data-filter="only" data-value="8" type="checkbox" id="landscapes"/>
+                                <label for="landscapes"><span></span>Landscapes</label>
+
+                                <input data-type='unchecked' data-text="Category:Nature" data-filter="only" data-value="18" type="checkbox" id="nature"/>
+                                <label for="nature"><span></span>Nature</label>
+
+                                <input data-type='unchecked' data-text="Category:Night" data-filter="only" data-value="30" type="checkbox" id="night"/>
+                                <label for="night"><span></span>Night</label>
+
+                                <input data-type='unchecked' data-text="Category:Nude" data-filter="only" data-value="4" type="checkbox" id="nude"/>
+                                <label for="nude"><span></span>Nude</label>
+
+                                <input data-type='unchecked' data-text="Category:People" data-filter="only" data-value="7" type="checkbox" id="people"/>
+                                <label for="people"><span></span>People</label>
+
+                                <input data-type='unchecked' data-text="Category:Sport" data-filter="only" data-value="17" type="checkbox" id="sport"/>
+                                <label for="sport"><span></span>Sport</label>
+
+                                <input data-type='unchecked' data-text="Category:Travel" data-filter="only" data-value="13" type="checkbox" id="travel"/>
+                                <label for="travel"><span></span>Travel</label>
+
+                                <input data-type='unchecked' data-text="Category:Wedding" data-filter="only" data-value="25" type="checkbox" id="wedding"/>
+                                <label for="wedding"><span></span>Wedding</label>
+
+                            </div>
+                        </div>
+
+                        <!--dimensions filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Dimensions
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div class="filter-options">
+                                <input data-type='unchecked' data-text="Dimensions:70px x 70px" data-filter="image_size" data-value="1" type="checkbox" id="70px"/>
+                                <label for="70px"><span></span>70px x 70px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:140px x 140px" data-filter="image_size" data-value="2" type="checkbox" id="140px"/>
+                                <label for="140px"><span></span>140px x 140px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:280px x 280px" data-filter="image_size" data-value="3" type="checkbox" id="280px"/>
+                                <label for="280px"><span></span>280px x 280px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:100px x 100px" data-filter="image_size" data-value="100" type="checkbox" id="100px"/>
+                                <label for="100px"><span></span>100px x 100px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:200px x 200px" data-filter="image_size" data-value="200" type="checkbox" id="200px"/>
+                                <label for="200px"><span></span>200px x 200px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:440px x 440px" data-filter="image_size" data-value="440" type="checkbox" id="440px"/>
+                                <label for="440px"><span></span>440px x 440px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:600px x 600px" data-filter="image_size" data-value="600" type="checkbox" id="600px"/>
+                                <label for="600px"><span></span>600px x 600px</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="flickr-filters"></div>
+
+                    <div id="instagram-filters"></div>
+                </div>
+
+            </div>
+
+            <!--map-->
+            <div class="map-container">
+
+                <!--selected filters-->
+                <div class="selected-filters">
+                    <div class="title">
+                        <i class="fa fa-filter" style="color:#7a449b" aria-hidden="true"></i>
+                        Selected Filters:
+                    </div>
+                    <div id="selectedFilters" onclick="removeFilter(event)" class="selected-filters-container">
+
+                    </div>
+                </div>
+
+                <!--map-->
+                <div id="map">
+
+                </div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/photos.js"></script>
+        <script src="../500px.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2ser3bVL0Tyh7ESutb0DjBf2UN8KKTA&callback=initMap"
+                type="text/javascript"></script>
+    </body>
+</html>
+
+
