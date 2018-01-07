@@ -20,9 +20,11 @@ function initMap() {
 }
 /*----------------------*/
 
-function on(image_url,url) {
+function on(image_url,name,description,url) {
     document.getElementById('fullImage').src = image_url;
     document.getElementById('fullImageSource').href = "https://500px.com" + url;
+    document.getElementById('fullImageTitle').textContent = name;
+    document.getElementById('fullImageDescription').textContent = description;
     document.getElementById("fullscreen").style.display = "block";
 }
 

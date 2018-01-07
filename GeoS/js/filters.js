@@ -65,16 +65,19 @@ function displayPhotosFrom500px(photos,source) {
                 icon: image
             });
 
-            if (photos[i].location === null) {
-                photos[i].location = 'Unknown';
+            if (photos[i].location_details === null) {
+                photos[i].location_details.city = 'Unknown';
+            }
+            if (photos[i].description === null) {
+                photos[i].description = "";
             }
 
             var links = {image_url: photos[i].image_url, url: photos[i].url};
             google.maps.event.addListener(markers[i], 'click', (function(marker, i) {
                 return function() {
                     var content = '<b>Source:</b>' + source + '<br>'+
-                        '<b>Location:</b>' + photos[i].location + '<br><br>' +
-                        '<img width="100" src="' + photos[i].image_url + '" onclick="on(\''+ photos[i].image_url  + '\',\'' + photos[i].url + '\')" /><br>';
+                        '<b>Location:</b>' + photos[i].location_details.city + '<br><br>' +
+                        '<img width="100" src="' + photos[i].image_url + '" onclick="on(\''+ photos[i].image_url  + '\',\'' + photos[i].name + '\',\'' +  photos[i].description + '\',\'' + photos[i].url + '\')" /><br>';
                     infowindow.setContent(content);
                     infowindow.open(map, marker);
                 }
