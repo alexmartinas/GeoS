@@ -17,9 +17,9 @@
                 <h2> Title of image  </h2>
                 <span><b> Source Image:</b> 500px</span>
             </div>
-            <img src="../GeoS/img/Pictures/sample_img1.jpg"/>
+            <img id="fullImage" src="../GeoS/img/Pictures/sample_img1.jpg"/>
             <div class="image-caption">
-                <a href="https://500px.com">Open source image</a>
+                <a id="fullImageSource" target="_blank" href="https://500px.com">Open source image</a>
             </div>
         </div>
         <div class="container">
@@ -29,13 +29,14 @@
                     <span onclick="closeFilters()" id="close-filter-menu"> <i class="fa fa-window-close-o" aria-hidden="true"></i></span>
                     <span onclick="openFilters()" id="open-filters-menu"> <i class="fa fa-filter" aria-hidden="true"></i> </span>
 
+                <!--search bar-->
                 <div class="filter">
-                    <div href="#" class="collapse-filter">Search photos
+                    <div class="collapse-filter">Search photos
                     </div>
 
                     <div class="search-input">
                         <input title="tag" placeholder="Search for..." id="tag" data-filter="Tag" type="text"/>
-                        <button type="button" class="search-button">
+                        <button type="button" class="search-button" onclick="searchPhotos(event)">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -97,26 +98,28 @@
                                 <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                             </div>
                             <div class="filter-options">
+                                <input name="area" data-type='unchecked' data-text="Area:Romania" data-filter="geo" data-value="45.89001,24.82910,283.238km" type="radio" id="romania"/>
+                                <label for="romania"><span></span>Romania</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Europe" data-filter="geo" data-value="54.87611,15.29297,1923322mi" type="radio" id="europe"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Europe" data-filter="geo" data-value="54.87611,15.29297,1923.322km" type="radio" id="europe"/>
                                 <label for="europe"><span></span>Europe</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Asia" data-filter="geo" data-value="37.71859,84.02344,3733764mi" type="radio" id="asia"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Asia" data-filter="geo" data-value="37.71859,84.02344,3733.764km" type="radio" id="asia"/>
                                 <label for="asia"><span></span>Asia</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Africa" data-filter="geo" data-value="-2.10890,18.98438,4623261mi" type="radio" id="africa"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Africa" data-filter="geo" data-value="-2.10890,18.98438,4623.261km" type="radio" id="africa"/>
                                 <label for="africa"><span></span>Africa</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:South America" data-filter="geo" data-value="-20.63278,-66.09375,3902238mi" type="radio" id="south-america"/>
+                                <input name="area" data-type='unchecked' data-text="Area:South America" data-filter="geo" data-value="-20.63278,-66.09375,3902.238km" type="radio" id="south-america"/>
                                 <label for="south-america"><span></span>South America</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:North America" data-filter="geo" data-value="-51.61862,-86.48438,3715679mi" type="radio" id="north-america"/>
+                                <input name="area" data-type='unchecked' data-text="Area:North America" data-filter="geo" data-value="-51.61862,-86.48438,3715.679km" type="radio" id="north-america"/>
                                 <label for="north-america"><span></span>North America</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Australia" data-filter="geo" data-value="-28.14950,135.70313,2334124mi" type="radio" id="australia"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Australia" data-filter="geo" data-value="-28.14950,135.70313,2334.124km" type="radio" id="australia"/>
                                 <label for="australia"><span></span>Australia</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Antarctica" data-filter="geo" data-value="-82.11838,59.76563,1883860mi" type="radio" id="antarctica"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Antarctica" data-filter="geo" data-value="-82.11838,59.76563,1883.860km" type="radio" id="antarctica"/>
                                 <label for="antarctica"><span></span>Antarctica</label>
 
                             </div>
@@ -129,64 +132,64 @@
                             </div>
                             <div class="filter-options">
 
-                                <input data-type='unchecked' data-text="Category:Uncategorized" data-filter="only" data-value="0" type="checkbox" id="uncategorized"/>
+                                <input data-type='unchecked' data-text="Category:Uncategorized" data-filter="only" data-value="Uncategorized" type="checkbox" id="uncategorized"/>
                                 <label for="uncategorized"><span></span>Uncategorized</label>
 
-                                <input data-type='unchecked' data-text="Category:Abstract" data-filter="only" data-value="10" type="checkbox" id="abstract"/>
+                                <input data-type='unchecked' data-text="Category:Abstract" data-filter="only" data-value="Abstract" type="checkbox" id="abstract"/>
                                 <label for="abstract"><span></span>Abstract</label>
 
-                                <input data-type='unchecked' data-text="Category:Aerial" data-filter="only" data-value="29" type="checkbox" id="aerial"/>
+                                <input data-type='unchecked' data-text="Category:Aerial" data-filter="only" data-value="Aerial" type="checkbox" id="aerial"/>
                                 <label for="aerial"><span></span>Aerial</label>
 
-                                <input data-type='unchecked' data-text="Category:Animals" data-filter="only" data-value="11" type="checkbox" id="animals"/>
+                                <input data-type='unchecked' data-text="Category:Animals" data-filter="only" data-value="Animals" type="checkbox" id="animals"/>
                                 <label for="animals"><span></span>Animals</label>
 
-                                <input data-type='unchecked' data-text="Category:Celebrities" data-filter="only" data-value="1" type="checkbox" id="celebrities"/>
+                                <input data-type='unchecked' data-text="Category:Celebrities" data-filter="only" data-value="Celebrities" type="checkbox" id="celebrities"/>
                                 <label for="celebrities"><span></span>Celebrities</label>
 
-                                <input data-type='unchecked' data-text="Category:City and Architecture" data-filter="only" data-value="9" type="checkbox" id="city-and-architecture"/>
+                                <input data-type='unchecked' data-text="Category:City and Architecture" data-filter="only" data-value="City and Architecture" type="checkbox" id="city-and-architecture"/>
                                 <label for="city-and-architecture"><span></span>City and Architecture</label>
 
-                                <input data-type='unchecked' data-text="Category:Comercial" data-filter="only" data-value="15" type="checkbox" id="comercial"/>
+                                <input data-type='unchecked' data-text="Category:Comercial" data-filter="only" data-value="Comercial" type="checkbox" id="comercial"/>
                                 <label for="comercial"><span></span>Comercial</label>
 
-                                <input data-type='unchecked' data-text="Category:Family" data-filter="only" data-value="20" type="checkbox" id="family"/>
+                                <input data-type='unchecked' data-text="Category:Family" data-filter="only" data-value="Family" type="checkbox" id="family"/>
                                 <label for="family"><span></span>Family</label>
 
-                                <input data-type='unchecked' data-text="Category:Fashion" data-filter="only" data-value="14" type="checkbox" id="fashion"/>
+                                <input data-type='unchecked' data-text="Category:Fashion" data-filter="only" data-value="Fashion" type="checkbox" id="fashion"/>
                                 <label for="fashion"><span></span>Fashion</label>
 
-                                <input data-type='unchecked' data-text="Category:Film" data-filter="only" data-value="2" type="checkbox" id="film"/>
+                                <input data-type='unchecked' data-text="Category:Film" data-filter="only" data-value="Film" type="checkbox" id="film"/>
                                 <label for="film"><span></span>Film</label>
 
-                                <input data-type='unchecked' data-text="Category:Fine Art" data-filter="only" data-value="24" type="checkbox" id="fine-art"/>
+                                <input data-type='unchecked' data-text="Category:Fine Art" data-filter="only" data-value="Fine Art" type="checkbox" id="fine-art"/>
                                 <label for="fine-art"><span></span>Fine Art</label>
 
-                                <input data-type='unchecked' data-text="Category:Food" data-filter="only" data-value="23" type="checkbox" id="food"/>
+                                <input data-type='unchecked' data-text="Category:Food" data-filter="only" data-value="Food" type="checkbox" id="food"/>
                                 <label for="food"><span></span>Food</label>
 
-                                <input data-type='unchecked' data-text="Category:Landscapes" data-filter="only" data-value="8" type="checkbox" id="landscapes"/>
+                                <input data-type='unchecked' data-text="Category:Landscapes" data-filter="only" data-value="Landscapes" type="checkbox" id="landscapes"/>
                                 <label for="landscapes"><span></span>Landscapes</label>
 
-                                <input data-type='unchecked' data-text="Category:Nature" data-filter="only" data-value="18" type="checkbox" id="nature"/>
+                                <input data-type='unchecked' data-text="Category:Nature" data-filter="only" data-value="Nature" type="checkbox" id="nature"/>
                                 <label for="nature"><span></span>Nature</label>
 
-                                <input data-type='unchecked' data-text="Category:Night" data-filter="only" data-value="30" type="checkbox" id="night"/>
+                                <input data-type='unchecked' data-text="Category:Night" data-filter="only" data-value="Night" type="checkbox" id="night"/>
                                 <label for="night"><span></span>Night</label>
 
-                                <input data-type='unchecked' data-text="Category:Nude" data-filter="only" data-value="4" type="checkbox" id="nude"/>
+                                <input data-type='unchecked' data-text="Category:Nude" data-filter="only" data-value="Nude" type="checkbox" id="nude"/>
                                 <label for="nude"><span></span>Nude</label>
 
-                                <input data-type='unchecked' data-text="Category:People" data-filter="only" data-value="7" type="checkbox" id="people"/>
+                                <input data-type='unchecked' data-text="Category:People" data-filter="only" data-value="People" type="checkbox" id="people"/>
                                 <label for="people"><span></span>People</label>
 
-                                <input data-type='unchecked' data-text="Category:Sport" data-filter="only" data-value="17" type="checkbox" id="sport"/>
+                                <input data-type='unchecked' data-text="Category:Sport" data-filter="only" data-value="Sport" type="checkbox" id="sport"/>
                                 <label for="sport"><span></span>Sport</label>
 
-                                <input data-type='unchecked' data-text="Category:Travel" data-filter="only" data-value="13" type="checkbox" id="travel"/>
+                                <input data-type='unchecked' data-text="Category:Travel" data-filter="only" data-value="Travel" type="checkbox" id="travel"/>
                                 <label for="travel"><span></span>Travel</label>
 
-                                <input data-type='unchecked' data-text="Category:Wedding" data-filter="only" data-value="25" type="checkbox" id="wedding"/>
+                                <input data-type='unchecked' data-text="Category:Wedding" data-filter="only" data-value="Wedding" type="checkbox" id="wedding"/>
                                 <label for="wedding"><span></span>Wedding</label>
 
                             </div>
@@ -252,7 +255,7 @@
         <script src="js/main.js"></script>
         <script src="js/filters.js"></script>
         <script src="js/photos.js"></script>
-        <script src="../500px.js"></script>
+        <script src="500px.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2ser3bVL0Tyh7ESutb0DjBf2UN8KKTA&callback=initMap"
                 type="text/javascript"></script>
     </body>

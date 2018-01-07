@@ -1,4 +1,96 @@
-var filters=[];
+var filters = [];
+var server = "500px";
+var markers = [];
+function searchPhotos(event) {
+    var text = document.getElementById('tag').value;
+    if (server === '500px') {
+        request500pxPhotos(text);
+    } else if (server === 'flickr') {
+        requestFlickrPhotos(text);
+    } else if (server === 'instagram') {
+        requestInstagramPhotos(text);
+    }
+
+}
+
+function request500pxPhotos(tag) {
+    console.log(filters);
+    var requestFilters = {};
+    requestFilters.rpp = 40;
+    if (filters['geo'] && filters['geo'].value) {
+        requestFilters.geo = filters['geo'].value;
+    }
+    if (filters['image_size'] && filters['image_size'].value) {
+        requestFilters.image_size = filters['image_size'].value;
+    }
+    if (filters['only'] && filters['only'].value) {
+        requestFilters.only = filters['only'].value;
+    }
+    if (filters['was_featured_type'] && filters['was_featured_type'].value) {
+        requestFilters.was_featured_type = filters['was_featured_type'].value;
+    }
+    if (tag && tag !== "") {
+        requestFilters.tag = tag;
+    }
+
+    _500px.api('/photos/search', requestFilters, function (response) {
+        if (response.success) {
+            displayPhotosFrom500px(response.data.photos,'500px');
+        } else {
+            alert("500px server is unavailable for the moment!")
+        }
+    });
+}
+
+function displayPhotosFrom500px(photos,source) {
+    console.log(photos);
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i,j;
+    for (i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    var image = new google.maps.MarkerImage(
+        '../GeoS/img/photo-icon.png',
+        new google.maps.Size(40, 40),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(20, 20),
+        new google.maps.Size(30, 30));
+
+    for (i = 0, j = 0; i < photos.length; i++) {
+
+        if (photos[i].latitude && photos[i].longitude) {
+            markers[j++] = new google.maps.Marker({
+                position: new google.maps.LatLng(photos[i].latitude, photos[i].longitude),
+                map: map,
+                icon: image
+            });
+
+            if (photos[i].location === null) {
+                photos[i].location = 'Unknown';
+            }
+
+            var links = {image_url: photos[i].image_url, url: photos[i].url};
+            google.maps.event.addListener(markers[i], 'click', (function(marker, i) {
+                return function() {
+                    var content = '<b>Source:</b>' + source + '<br>'+
+                        '<b>Location:</b>' + photos[i].location + '<br><br>' +
+                        '<img width="100" src="' + photos[i].image_url + '" onclick="on(\''+ photos[i].image_url  + '\',\'' + photos[i].url + '\')" /><br>';
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                }
+            })(markers[i], i));
+        }
+    }
+}
+
+function requestFlickrPhotos(tag) {
+
+}
+
+function requestInstagramPhotos(tag) {
+
+}
+
 function displayFilters(event) {
     var target = event.target;
     var instagram = document.getElementById('instagram-filters');
@@ -15,6 +107,7 @@ function displayFilters(event) {
 
             flickr.style.display = 'none';
             flickr.setAttribute('data-type','unchecked');
+            server = '500px';
         } else if (target.id === 'flickr') {
             px.style.display = 'none';
             px.setAttribute('data-type','unchecked');
@@ -24,6 +117,7 @@ function displayFilters(event) {
 
             flickr.style.display = 'block';
             flickr.setAttribute('data-type','checked');
+            server = 'flickr';
         } else if (target.id === 'instagram') {
             px.style.display = 'none';
             px.setAttribute('data-type','unchecked');
@@ -33,6 +127,7 @@ function displayFilters(event) {
 
             flickr.style.display = 'none';
             flickr.setAttribute('data-type','unchecked');
+            server = 'instagram';
         }
 
         //remove seleted filters
