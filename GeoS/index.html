@@ -70,7 +70,7 @@
                                 <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                             </div>
 
-                            <div class="filter-options">
+                            <div id="was_featured_type" class="filter-options">
                                 <input data-type='unchecked' name="feature" data-text="Feature:Popular" data-filter="was_featured_type" data-value="popular" type="radio" id="popular"/>
                                 <label for="popular"><span></span>Popular</label>
 
@@ -97,29 +97,29 @@
                             <div class="collapse-filter">Area
                                 <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                             </div>
-                            <div class="filter-options">
-                                <input name="area" data-type='unchecked' data-text="Area:Romania" data-filter="geo" data-value="45.89001,24.82910,283.238km" type="radio" id="romania"/>
+                            <div id="geo" class="filter-options">
+                                <input name="area" data-type='unchecked' data-text="Area:Romania" data-filter="geo" data-value="45.946,24.980,283.238km" type="radio" id="romania"/>
                                 <label for="romania"><span></span>Romania</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Europe" data-filter="geo" data-value="54.87611,15.29297,1923.322km" type="radio" id="europe"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Europe" data-filter="geo" data-value="52.976,7.857,1923.322km" type="radio" id="europe"/>
                                 <label for="europe"><span></span>Europe</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Asia" data-filter="geo" data-value="37.71859,84.02344,3733.764km" type="radio" id="asia"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Asia" data-filter="geo" data-value="34.969,99.819,3733.764km" type="radio" id="asia"/>
                                 <label for="asia"><span></span>Asia</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Africa" data-filter="geo" data-value="-2.10890,18.98438,4623.261km" type="radio" id="africa"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Africa" data-filter="geo" data-value="2.070,15.800,4623.261km" type="radio" id="africa"/>
                                 <label for="africa"><span></span>Africa</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:South America" data-filter="geo" data-value="-20.63278,-66.09375,3902.238km" type="radio" id="south-america"/>
+                                <input name="area" data-type='unchecked' data-text="Area:South America" data-filter="geo" data-value="-23.030,-67.903,3902.238km" type="radio" id="south-america"/>
                                 <label for="south-america"><span></span>South America</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:North America" data-filter="geo" data-value="-51.61862,-86.48438,3715.679km" type="radio" id="north-america"/>
+                                <input name="area" data-type='unchecked' data-text="Area:North America" data-filter="geo" data-value="44.330,-109.754,3715.679km" type="radio" id="north-america"/>
                                 <label for="north-america"><span></span>North America</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Australia" data-filter="geo" data-value="-28.14950,135.70313,2334.124km" type="radio" id="australia"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Australia" data-filter="geo" data-value="-30.941,140.810,2334.124km" type="radio" id="australia"/>
                                 <label for="australia"><span></span>Australia</label>
 
-                                <input name="area" data-type='unchecked' data-text="Area:Antarctica" data-filter="geo" data-value="-82.11838,59.76563,1883.860km" type="radio" id="antarctica"/>
+                                <input name="area" data-type='unchecked' data-text="Area:Antarctica" data-filter="geo" data-value="-81.500,0.000,1883.860km" type="radio" id="antarctica"/>
                                 <label for="antarctica"><span></span>Antarctica</label>
 
                             </div>
@@ -130,7 +130,7 @@
                             <div class="collapse-filter">Category
                                 <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                             </div>
-                            <div class="filter-options">
+                            <div id="only" class="filter-options">
 
                                 <input data-type='unchecked' data-text="Category:Uncategorized" data-filter="only" data-value="Uncategorized" type="checkbox" id="uncategorized"/>
                                 <label for="uncategorized"><span></span>Uncategorized</label>
@@ -200,7 +200,7 @@
                             <div class="collapse-filter">Dimensions
                                 <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
                             </div>
-                            <div class="filter-options">
+                            <div id="image_size" class="filter-options">
                                 <input data-type='unchecked' data-text="Dimensions:70px x 70px" data-filter="image_size" data-value="1" type="checkbox" id="70px"/>
                                 <label for="70px"><span></span>70px x 70px</label>
 
@@ -223,11 +223,182 @@
                                 <label for="600px"><span></span>600px x 600px</label>
                             </div>
                         </div>
+
+                        <!--camera filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Camera
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+
+                            <div id="camera" class="filter-options">
+                                <input data-type='unchecked' name="camera" data-text="Camera:Popular" data-filter="camera" data-value="Canon" type="checkbox" id="Canon"/>
+                                <label for="Canon"><span></span>Canon</label>
+
+                                <input data-type='unchecked' name="camera" data-text="Camera:NIKON" data-filter="camera" data-value="NIKON" type="checkbox" id="NIKON"/>
+                                <label for="NIKON"><span></span>NIKON</label>
+
+                                <input data-type='unchecked' name="camera" data-text="Camera:DSLR" data-filter="camera" data-value="DSLR" type="checkbox" id="DSLR"/>
+                                <label for="DSLR"><span></span>DSLR</label>
+                            </div>
+                        </div>
+
+                        <!--focal length filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Focal length
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+
+                            <div id="focal_length" class="filter-options">
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 10" data-filter="focal_length" data-value="10" type="radio" id="max10"/>
+                                <label for="max10"><span></span>Less than 10</label>
+
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 50" data-filter="focal_length" data-value="50" type="radio" id="max50"/>
+                                <label for="max50"><span></span>Less than 50</label>
+
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 100" data-filter="focal_length" data-value="100" type="radio" id="max100"/>
+                                <label for="max100"><span></span>Less than 100</label>
+
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 150" data-filter="focal_length" data-value="150" type="radio" id="max150"/>
+                                <label for="max150"><span></span>Less than 150</label>
+
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 200" data-filter="focal_length" data-value="200" type="radio" id="max200"/>
+                                <label for="max200"><span></span>Less than 200</label>
+
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 250" data-filter="focal_length" data-value="250" type="radio" id="max250"/>
+                                <label for="max250"><span></span>Less than 250</label>
+
+                                <input data-type='unchecked' name="focal_length" data-text="Focal length: < 300" data-filter="focal_length" data-value="300" type="radio" id="max300"/>
+                                <label for="max300"><span></span>Less than 300</label>
+                            </div>
+                        </div>
                     </div>
 
-                    <div id="flickr-filters"></div>
+                    <div style="display: none" id="flickr-filters">
+                        <!--area filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Area
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div id="bbox"  class="filter-options">
+                                <input name="area" data-type='unchecked' data-text="Area:Romania" data-filter="bbox" data-value="21,44,27,48" type="radio" id="romaniaFlickr"/>
+                                <label for="romaniaFlickr"><span></span>Romania</label>
 
-                    <div id="instagram-filters"></div>
+                                <input name="area" data-type='unchecked' data-text="Area:Europe" data-filter="bbox" data-value="-22,36,40,71" type="radio" id="europeFlickr"/>
+                                <label for="europeFlickr"><span></span>Europe</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Asia" data-filter="bbox" data-value="58,0,175,78" type="radio" id="asiaFlickr"/>
+                                <label for="asiaFlickr"><span></span>Asia</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Africa" data-filter="bbox" data-value="-20,-34,56,36" type="radio" id="africaFlickr"/>
+                                <label for="africaFlickr"><span></span>Africa</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:South America" data-filter="bbox" data-value="-80,-55,-36,15" type="radio" id="south-americaFlickr"/>
+                                <label for="south-americaFlickr"><span></span>South America</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:North America" data-filter="bbox" data-value="-163,0,-24,84" type="radio" id="north-americaFlickr"/>
+                                <label for="north-americaFlickr"><span></span>North America</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Australia" data-filter="bbox" data-value="106,-43,178,0" type="radio" id="australiaFlickr"/>
+                                <label for="australiaFlickr"><span></span>Australia</label>
+
+                                <input name="area" data-type='unchecked' data-text="Area:Antarctica" data-filter="bbox" data-value="-180,-84,180,-63" type="radio" id="antarcticaFlickr"/>
+                                <label for="antarcticaFlickr"><span></span>Antarctica</label>
+
+                            </div>
+                        </div>
+
+                        <!--geo context filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Location context
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div id="geo_context" class="filter-options">
+                                <input name="geo_context" data-type='unchecked' data-text="Location context:Inside" data-filter="geo_context" data-value="1" type="radio" id="inside"/>
+                                <label for="inside"><span></span>Inside</label>
+
+                                <input name="geo_context" data-type='unchecked' data-text="Location context:Outside" data-filter="geo_context" data-value="2" type="radio" id="outside"/>
+                                <label for="outside"><span></span>Outside</label>
+
+                                <input name="geo_context" data-type='unchecked' data-text="Location context:Undefined" data-filter="geo_context" data-value="0" type="radio" id="undefined"/>
+                                <label for="undefined"><span></span>Undefined</label>
+
+                            </div>
+                        </div>
+
+                        <!--taken time filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Taken date
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div id="min_taken_date" class="filter-options">
+                                <input name="min_taken_date" data-type='unchecked'  data-text="Taken:Today" data-filter="min_taken_date" data-value="1" type="radio" id="todayFlickrTaken"/>
+                                <label for="todayFlickrTaken"><span></span>Today</label>
+
+                                <input name="min_taken_date" data-type='unchecked'  data-text="Taken:Last week" data-filter="min_taken_date" data-value="2" type="radio" id="lastWeekFlickrTaken"/>
+                                <label for="lastWeekFlickrTaken"><span></span>Last week</label>
+
+                                <input name="min_taken_date" data-type='unchecked'  data-text="Taken:Last month" data-filter="min_taken_date" data-value="0" type="radio" id="lastMonthFlickrTaken"/>
+                                <label for="lastMonthFlickrTaken"><span></span>Last month</label>
+
+                                <input name="min_taken_date" data-type='unchecked'  data-text="Taken:Last year" data-filter="min_taken_date" data-value="0" type="radio" id="lastYearFlickrTaken"/>
+                                <label for="lastYearFlickrTaken"><span></span>Last year</label>
+
+                            </div>
+                        </div>
+
+                        <!--Uploaded time filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Uploaded date
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div id="min_upload_date" class="filter-options">
+                                <input name="min_upload_date" data-type='unchecked'  data-text="Uploaded:Today" data-filter="min_upload_date" data-value="1" type="radio" id="todayFlickrUploaded"/>
+                                <label for="todayFlickrUploaded"><span></span>Today</label>
+
+                                <input name="min_upload_date" data-type='unchecked'  data-text="Uploaded:Last week" data-filter="min_upload_date" data-value="2" type="radio" id="lastWeekFlickrUploaded"/>
+                                <label for="lastWeekFlickrUploaded"><span></span>Last week</label>
+
+                                <input name="min_upload_date" data-type='unchecked'  data-text="Uploaded:Last month" data-filter="min_upload_date" data-value="0" type="radio" id="lastMonthFlickrUploaded"/>
+                                <label for="lastMonthFlickrUploaded"><span></span>Last month</label>
+
+                                <input name="min_upload_date" data-type='unchecked'  data-text="Uploaded:Last year" data-filter="min_upload_date" data-value="0" type="radio" id="lastYearFlickrUploaded"/>
+                                <label for="lastYearFlickrUploaded"><span></span>Last year</label>
+
+                            </div>
+                        </div>
+
+                        <!--dimensions filter-->
+                        <div class="filter">
+                            <div class="collapse-filter">Dimensions
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div id="flickr_image_size" class="filter-options">
+                                <input data-type='unchecked' data-text="Dimensions:75px x 75px" data-filter="flickr_image_size" data-value="s" type="checkbox" id="75px"/>
+                                <label for="75px"><span></span>75px x 75px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:150px x 150px" data-filter="flickr_image_size" data-value="q" type="checkbox" id="150px"/>
+                                <label for="150px"><span></span>150px x 150px</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:240px longest size" data-filter="flickr_image_size" data-value="m" type="checkbox" id="240px"/>
+                                <label for="240px"><span></span>240px longest size</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:320px on the longest zise" data-filter="flickr_image_size" data-value="n" type="checkbox" id="320px"/>
+                                <label for="320px"><span></span>320px longest size</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:640px longest size" data-filter="flickr_image_size" data-value="z" type="checkbox" id="640px"/>
+                                <label for="640px"><span></span>640px longest size</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:1024 longest size" data-filter="flickr_image_size" data-value="b" type="checkbox" id="1024px"/>
+                                <label for="1024px"><span></span>1024px longest size</label>
+
+                                <input data-type='unchecked' data-text="Dimensions:2048px longest size" data-filter="flickr_image_size" data-value="k" type="checkbox" id="2048px"/>
+                                <label for="2048px"><span></span>2048px longest size</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="display: none" id="instagram-filters"></div>
                 </div>
 
             </div>
