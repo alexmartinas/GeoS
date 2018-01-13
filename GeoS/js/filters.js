@@ -129,7 +129,7 @@ function displayPhotosFrom500px(photos,source) {
     }
 
     for (i = 0, j = 0; i < photos.length; i++) {
-
+        console.log(photos[i]);
         if (photos[i].latitude && photos[i].longitude) {
             markers[j] = new google.maps.Marker({
                 position: new google.maps.LatLng(photos[i].latitude, photos[i].longitude),
@@ -137,10 +137,11 @@ function displayPhotosFrom500px(photos,source) {
                 icon: image
             });
 
-            if (photos[i].location_details === null) {
+            if (!photos[i].location_details) {
+                photos[i].location_details = {};
                 photos[i].location_details.city = 'Unknown';
             }
-            if (photos[i].description === null) {
+            if (!photos[i].description) {
                 photos[i].description = "";
             }
 
