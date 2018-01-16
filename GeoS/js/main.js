@@ -31,74 +31,80 @@ window.onload = function () {
     document.getElementById("flickr").checked = localStorage.getItem("flickr") == "true"? true:false; 
     document.getElementById("instagram").checked = localStorage.getItem("instagram") == "true"? true:false;
 
-    document.getElementById("popular").checked = localStorage.getItem("popular") == "true"? true:false; 
-     document.getElementById("highest_rated").checked = localStorage.getItem("highest_rated") == "true"? true:false;
-    document.getElementById("upcoming").checked = localStorage.getItem("upcoming") == "true"? true:false; 
-    document.getElementById("fresh_today").checked = localStorage.getItem("fresh_today") == "true"? true:false; 
-    document.getElementById("fresh_yesterday").checked = localStorage.getItem("fresh_yesterday") == "true"? true:false; 
-    document.getElementById("fresh_week").checked = localStorage.getItem("fresh_week") == "true"? true:false; 
+    document.getElementById("popular").checked = localStorage.getItem("popular") == "true"? addFilter2(document.getElementById("popular")):false; 
+    document.getElementById("highest_rated").checked = localStorage.getItem("highest_rated") == "true"? addFilter2(document.getElementById("highest_rated")):false;
+    document.getElementById("upcoming").checked = localStorage.getItem("upcoming") == "true"? addFilter2(document.getElementById("upcoming")):false; 
+    document.getElementById("fresh_today").checked = localStorage.getItem("fresh_today") == "true"? addFilter2(document.getElementById("fresh_today")):false; 
+    document.getElementById("fresh_yesterday").checked = localStorage.getItem("fresh_yesterday") == "true"? addFilter2(document.getElementById("fresh_yesterday")):false; 
+    document.getElementById("fresh_week").checked = localStorage.getItem("fresh_week") == "true"? addFilter2(document.getElementById("fresh_week")):false; 
 
-    document.getElementById("romania").checked = localStorage.getItem("romania") == "true"? true:false; 
-    document.getElementById("europe").checked = localStorage.getItem("europe") == "true"? true:false; 
-    document.getElementById("asia").checked = localStorage.getItem("asia") == "true"? true:false; 
-    document.getElementById("africa").checked = localStorage.getItem("africa") == "true"? true:false; 
-    document.getElementById("south-america").checked = localStorage.getItem("south-america") == "true"? true:false; 
-   document.getElementById("north-america").checked =  localStorage.getItem("north-america") == "true"? true:false; 
-   document.getElementById("australia").checked =  localStorage.getItem("australia") == "true"? true:false; 
-   document.getElementById("antarctica").checked =  localStorage.getItem("antarctica") == "true"? true:false; 
-
-
-    document.getElementById("uncategorized").checked = localStorage.getItem("uncategorized") == "true"? true:false; 
-    document.getElementById("abstract").checked = localStorage.getItem("abstract") == "true"? true:false; 
-    document.getElementById("aerial").checked = localStorage.getItem("aerial") == "true"? true:false; 
-    document.getElementById("animals").checked = localStorage.getItem("animals") == "true"? true:false; 
-    document.getElementById("celebrities").checked = localStorage.getItem("celebrities") == "true"? true:false; 
-    document.getElementById("city-and-architecture").checked = localStorage.getItem("city-and-architecture") == "true"? true:false; 
-    document.getElementById("comercial").checked = localStorage.getItem("comercial") == "true"? true:false; 
-    document.getElementById("family").checked = localStorage.getItem("family") == "true"? true:false; 
-     document.getElementById("fashion").checked =localStorage.getItem("fashion") == "true"? true:false; 
-    document.getElementById("film").checked = localStorage.getItem("film") == "true"? true:false; 
-    document.getElementById("fine-art").checked =localStorage.getItem("fine-art") == "true"? true:false;  
-   document.getElementById("food").checked =  localStorage.getItem("food") == "true"? true:false; 
-    document.getElementById("landscapes").checked = localStorage.getItem("landscapes") == "true"? true:false; 
-    document.getElementById("nature").checked = localStorage.getItem( "nature") == "true"? true:false; 
-    document.getElementById("night").checked = localStorage.getItem( "night") == "true"? true:false; 
-    document.getElementById("nude").checked = localStorage.getItem("nude") == "true"? true:false; 
-    document.getElementById("people").checked = localStorage.getItem("people") == "true"? true:false; 
-    document.getElementById("travel").checked = localStorage.getItem("travel") == "true"? true:false; 
-    document.getElementById("wedding").checked = localStorage.getItem("wedding") == "true"? true:false; 
+    document.getElementById("romania").checked = localStorage.getItem("romania") == "true"? addFilter2(document.getElementById("romania")):false; 
+    document.getElementById("europe").checked = localStorage.getItem("europe") == "true"? addFilter2(document.getElementById("europe")):false; 
+    document.getElementById("asia").checked = localStorage.getItem("asia") == "true"? addFilter2(document.getElementById("asia")):false; 
+    document.getElementById("africa").checked = localStorage.getItem("africa") == "true"? addFilter2(document.getElementById("africa")):false; 
+    document.getElementById("south-america").checked = localStorage.getItem("south-america") == "true"? addFilter2(document.getElementById("south-america")):false; 
+   document.getElementById("north-america").checked =  localStorage.getItem("north-america") == "true"? addFilter2(document.getElementById("north-america")):false; 
+   document.getElementById("australia").checked =  localStorage.getItem("australia") == "true"? addFilter2(document.getElementById("australia")):false; 
+   document.getElementById("antarctica").checked =  localStorage.getItem("antarctica") == "true"? addFilter2(document.getElementById("antarctica")):false; 
 
 
-     document.getElementById("70px").checked = localStorage.getItem( "70px") == "true"? true:false;
-     document.getElementById("140px").checked =localStorage.getItem( "140px") == "true"? true:false; 
-    document.getElementById("280px").checked = localStorage.getItem("280px") == "true"? true:false; 
-    document.getElementById("100px").checked = localStorage.getItem( "100px") == "true"? true:false; 
-    document.getElementById("200px").checked = localStorage.getItem( "200px") == "true"? true:false; 
-     document.getElementById("440px").checked = localStorage.getItem( "440px") == "true"? true:false;
-    document.getElementById("600px").checked = localStorage.getItem( "600px") == "true"? true:false; 
+    document.getElementById("uncategorized").checked = localStorage.getItem("uncategorized") == "true"? addFilter2(document.getElementById("uncategorized")):false; 
+    document.getElementById("abstract").checked = localStorage.getItem("abstract") == "true"? addFilter2(document.getElementById("abstract")):false; 
+    document.getElementById("aerial").checked = localStorage.getItem("aerial") == "true"? addFilter2(document.getElementById("aerial")):false; 
+    document.getElementById("animals").checked = localStorage.getItem("animals") == "true"? addFilter2(document.getElementById("animals")):false; 
+    document.getElementById("celebrities").checked = localStorage.getItem("celebrities") == "true"? addFilter2(document.getElementById("celebrities")):false; 
+    document.getElementById("city-and-architecture").checked = localStorage.getItem("city-and-architecture") == "true"? addFilter2(document.getElementById("city-and-architecture")):false; 
+    document.getElementById("comercial").checked = localStorage.getItem("comercial") == "true"? addFilter2(document.getElementById("comercial")):false; 
+    document.getElementById("family").checked = localStorage.getItem("family") == "true"? addFilter2(document.getElementById("family")):false; 
+     document.getElementById("fashion").checked =localStorage.getItem("fashion") == "true"? addFilter2(document.getElementById("fashion")):false; 
+    document.getElementById("film").checked = localStorage.getItem("film") == "true"? addFilter2(document.getElementById("film")):false; 
+    document.getElementById("fine-art").checked =localStorage.getItem("fine-art") == "true"?  addFilter2(document.getElementById("fine-art")):false;  
+   document.getElementById("food").checked =  localStorage.getItem("food") == "true"? addFilter2(document.getElementById("food")):false; 
+    document.getElementById("landscapes").checked = localStorage.getItem("landscapes") == "true"? addFilter2(document.getElementById("landscapes")):false; 
+    document.getElementById("nature").checked = localStorage.getItem( "nature") == "true"? addFilter2(document.getElementById("nature")):false; 
+    document.getElementById("night").checked = localStorage.getItem( "night") == "true"? addFilter2(document.getElementById("night")):false; 
+    document.getElementById("nude").checked = localStorage.getItem("nude") == "true"? addFilter2(document.getElementById("nude")):false; 
+    document.getElementById("people").checked = localStorage.getItem("people") == "true"? addFilter2(document.getElementById("people")):false; 
+    document.getElementById("travel").checked = localStorage.getItem("travel") == "true"? addFilter2(document.getElementById("travel")):false; 
+    document.getElementById("wedding").checked = localStorage.getItem("wedding") == "true"? addFilter2(document.getElementById("wedding")):false; 
 
-    document.getElementById("Canon").checked = localStorage.getItem( "Canon") == "true"? true:false; 
-    document.getElementById("NIKON").checked = localStorage.getItem( "NIKON") == "true"? true:false; 
-    document.getElementById("DSLR").checked = localStorage.getItem(  "DSLR") == "true"? true:false; 
+
+     document.getElementById("70px").checked = localStorage.getItem("70px") == "true"? addFilter2(document.getElementById("70px")):false;
+     document.getElementById("140px").checked =localStorage.getItem("140px") == "true"? addFilter2(document.getElementById("140px")):false; 
+    document.getElementById("280px").checked = localStorage.getItem("280px") == "true"? addFilter2(document.getElementById("280px")):false; 
+    document.getElementById("100px").checked = localStorage.getItem("100px") == "true"? addFilter2(document.getElementById("100px")):false; 
+    document.getElementById("200px").checked = localStorage.getItem("200px") == "true"? addFilter2(document.getElementById("200px")):false; 
+     document.getElementById("440px").checked = localStorage.getItem("440px") == "true"? addFilter2(document.getElementById("440px")):false;
+    document.getElementById("600px").checked = localStorage.getItem("600px") == "true"? addFilter2(document.getElementById("600px")):false; 
+
+    document.getElementById("Canon").checked = localStorage.getItem("Canon") == "true"? addFilter2(document.getElementById("Canon")):false; 
+    document.getElementById("NIKON").checked = localStorage.getItem("NIKON") == "true"? addFilter2(document.getElementById("NIKON")):false; 
+    document.getElementById("DSLR").checked = localStorage.getItem("DSLR") == "true"? addFilter2(document.getElementById("DSLR")):false; 
 
 
-    document.getElementById("max10").checked = localStorage.getItem( "max10") == "true"? true:false; 
-    document.getElementById("max50").checked = localStorage.getItem(  "max50") == "true"? true:false; 
-    document.getElementById("max100").checked =localStorage.getItem(  "max100") == "true"? true:false;  
-    document.getElementById("max150").checked =localStorage.getItem(  "max150") == "true"? true:false;  
-    document.getElementById("max200").checked = localStorage.getItem(  "max200") == "true"? true:false; 
-    document.getElementById("max250").checked = localStorage.getItem(  "max250") == "true"? true:false; 
-    document.getElementById("max300").checked = localStorage.getItem(  "max300") == "true"? true:false; 
+    document.getElementById("max10").checked = localStorage.getItem("max10") == "true"? addFilter2(document.getElementById("max10")):false; 
+    document.getElementById("max50").checked = localStorage.getItem("max50") == "true"? addFilter2(document.getElementById("max50")):false; 
+    document.getElementById("max100").checked =localStorage.getItem("max100") == "true"? addFilter2(document.getElementById("max100")):false;  
+    document.getElementById("max150").checked =localStorage.getItem("max150") == "true"? addFilter2(document.getElementById("max150")):false;  
+    document.getElementById("max200").checked = localStorage.getItem("max200") == "true"? addFilter2(document.getElementById("max200")):false; 
+    document.getElementById("max250").checked = localStorage.getItem("max250") == "true"? addFilter2(document.getElementById("max250")):false; 
+    document.getElementById("max300").checked = localStorage.getItem("max300") == "true"? addFilter2(document.getElementById("max300")):false; 
 
 
-    document.getElementById("romaniaFlickr").checked = localStorage.getItem(  "romaniaFlickr") == "true"? true:false; 
-     document.getElementById("europeFlickr").checked = localStorage.getItem(  "europeFlickr") == "true"? true:false;
-    document.getElementById("asiaFlickr").checked = localStorage.getItem(  "asiaFlickr") == "true"? true:false; 
-    document.getElementById("africaFlickr").checked = localStorage.getItem(  "africaFlickr") == "true"? true:false; 
-    document.getElementById("south-americaFlickr").checked =localStorage.getItem( "south-americaFlickr") == "true"? true:false;  
-     document.getElementById("north-americaFlickr").checked = localStorage.getItem( "north-americaFlickr") == "true"? true:false;
-    document.getElementById("australiaFlickr").checked = localStorage.getItem( "australiaFlickr") == "true"? true:false; 
-     document.getElementById("antarcticaFlickr").checked = localStorage.getItem( "antarcticaFlickr") == "true"? true:false;
+    document.getElementById("romaniaFlickr").checked = localStorage.getItem("romaniaFlickr") == "true"? addFilter2(document.getElementById("romaniaFlickr")):false; 
+    document.getElementById("europeFlickr").checked = localStorage.getItem("europeFlickr") == "true"? addFilter2(document.getElementById("europeFlickr")):false;
+    document.getElementById("asiaFlickr").checked = localStorage.getItem("asiaFlickr") == "true"? addFilter2(document.getElementById("asiaFlickr")):false; 
+    document.getElementById("africaFlickr").checked = localStorage.getItem("africaFlickr") == "true"? addFilter2(document.getElementById("africaFlickr")):false; 
+    document.getElementById("south-americaFlickr").checked =localStorage.getItem( "south-americaFlickr") == "true"? addFilter2(document.getElementById("south-americaFlickr")):false;  
+    document.getElementById("north-americaFlickr").checked = localStorage.getItem( "north-americaFlickr") == "true"? addFilter2(document.getElementById("north-americaFlickr")):false;
+    document.getElementById("australiaFlickr").checked = localStorage.getItem( "australiaFlickr") == "true"? addFilter2(document.getElementById("australiaFlickr")):false; 
+    document.getElementById("antarcticaFlickr").checked = localStorage.getItem( "antarcticaFlickr") == "true"? addFilter2(document.getElementById("antarcticaFlickr")):false;
+
+    document.getElementById("inside").checked = localStorage.getItem( "inside") == "true"? addFilter2(document.getElementById("inside")):false;
+    document.getElementById("outside").checked = localStorage.getItem( "outside") == "true"? addFilter2(document.getElementById("outside")):false; 
+    document.getElementById("undefined").checked = localStorage.getItem( "undefined") == "true"? addFilter2(document.getElementById("undefined")):false;
+
+
 };
 
 window.onclick = function () {
@@ -177,6 +183,10 @@ window.onclick = function () {
     localStorage.setItem( "australiaFlickr", document.getElementById("australiaFlickr").checked);
     localStorage.setItem( "antarcticaFlickr", document.getElementById("antarcticaFlickr").checked);
 
+
+    localStorage.setItem( "inside", document.getElementById("inside").checked);
+    localStorage.setItem( "outside", document.getElementById("outside").checked);
+    localStorage.setItem( "undefined", document.getElementById("undefined").checked);
     console.log("Saved!");
 }
 

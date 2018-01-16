@@ -416,6 +416,76 @@ function addFilter(event){
     }
 }
 
+
+function addFilter2(input){
+    var target = input;
+    var filter = target.getAttribute('data-filter');
+    var filterValue = target.getAttribute('data-value');
+    var filterText = target.getAttribute('data-text');
+    if (target.tagName === "INPUT" && target.getAttribute('type') === 'radio'){
+        if (target.getAttribute('data-type') === 'unchecked'){
+            var container = document.getElementById(filter);
+            var filterElement = container.querySelector("input[data-type='checked']");
+            if (filterElement) {
+                filterElement.setAttribute('data-type','unchecked');
+            }
+            target.setAttribute('data-type','checked');
+            if (!filters[filter]){
+                filters[filter] = {};
+                filters[filter].value = filterValue;
+                filters[filter].type = 'single';
+            } else if (filters[filter].value !== filterValue) {
+                filters[filter].value = filterValue;
+            }
+            container = document.getElementById("selectedFilters");
+            filterElement = container.querySelector("div[data-filter='" + filter +"']");
+            if (!filterElement) {
+                addSelectedFilter(filter,filterText);
+            } else {
+                filterElement.textContent = filterText;
+                filterElement.id = filterText;
+                var i = document.createElement('I');
+                i.className = "fa fa-close remove-filter";
+                filterElement.appendChild(i);
+            }
+            addRemoveAllButton();
+        } else {
+            target.setAttribute('data-type','unchecked');
+            target.checked = false;
+            filters[filter].value = null;
+            removeSelectedFilter(filterText);
+            if (document.getElementsByClassName('selected-filter').length === 0) {
+                removeSelectedFilter('removeAllFilters')
+            }
+        }
+
+    } else if (target.tagName === "INPUT" && target.getAttribute('type') === 'checkbox') {
+        if (target.getAttribute('data-type') === 'unchecked') {
+            target.setAttribute('data-type','checked');
+            if (!filters[filter]){
+                filters[filter] = {};
+                filters[filter].value = [];
+                filters[filter].value.push(filterValue);
+                filters[filter].type = 'multiple';
+            } else {
+                filters[filter].value.push(filterValue);
+            }
+            addSelectedFilter(filter,filterText);
+            addRemoveAllButton();
+        } else {
+            target.setAttribute('data-type','unchecked');
+            target.checked = false;
+            var index = filters[filter].value.indexOf(filterValue);
+            filters[filter].value.splice(index, 1);
+            removeSelectedFilter(filterText);
+            if (document.getElementsByClassName('selected-filter').length === 0) {
+                removeSelectedFilter('removeAllFilters')
+            }
+        }
+    }
+    return true;
+}
+
 function addRemoveAllButton(){
     //create remove all filters button
     if (!document.getElementById("removeAllFilters")){
