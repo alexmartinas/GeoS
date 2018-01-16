@@ -12,8 +12,12 @@ window.onload = function () {
     });
     infowindow = new google.maps.InfoWindow();
 
+    var url = document.URL;
+    var poz = url.indexOf('code=');
+    if (poz > 0 && instagramToken === 0) {
+        getInstagramToken(url.substr(poz+5))
+    }
 };
-
 
 /* Google Map */
 
@@ -27,6 +31,7 @@ function initMap() {
 /*----------------------*/
 
 function on(image_url,name,description,url) {
+    console.log(image_url,name,description,url);
     document.getElementById('fullImage').src = image_url;
     document.getElementById('fullImageSource').href =  url;
     document.getElementById('fullImageTitle').textContent = name;

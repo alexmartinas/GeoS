@@ -3,6 +3,10 @@ var server = "500px";
 var markers = [];
 var flickrPhotos = [];
 var counter = 0;
+var instagramToken = window.localStorage.getItem('instagramToken') !== null ? window.localStorage.getItem('instagramToken') : 0;
+var instagramClientId = "a09387af147046f4b1bffb41fd63153e";
+var instagramClientSecret = "cca1df0f4fb7410d88d0d9ac37bcb82a";
+var instagramRedirectURI = "http://cliw-geos.s3-website-eu-west-1.amazonaws.com/GeoS/index.html";
 var flickrPlacesLocation = {
     "21,44,27,48": {
         "latitude" : "45.946",
@@ -274,7 +278,58 @@ function displayPhotosFromFlickr(){
 }
 
 function requestInstagramPhotos(tag) {
+    if (instagramToken === 0) {
+        alert("Please login to Instagram first");
+    } else {
 
+        var request = new XMLHttpRequest();
+        var url = "https://api.instagram.com/v1/users/self/media/recent?access_token=" + instagramToken;
+        request.open('GET', url);
+        request.onloadend = function () {
+            var photos = JSON.parse(this.response);
+            displayPhotosFromInstagram(photos.data,tag);
+        };
+        request.send();
+    }
+}
+
+function displayPhotosFromInstagram(photos,tag) {
+    var marker, i,j;
+    for (i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = [];
+    google.maps.event.clearListeners(map, 'click');
+    var image = new google.maps.MarkerImage(
+        '../GeoS/img/photo-icon.png',
+        new google.maps.Size(40, 40),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(20, 20),
+        new google.maps.Size(30, 30));
+
+    var keys = Object.keys(flickrPhotos);
+    var lat = 45.946;
+    var lng = 24.980;
+    for (i = 0, j = 0; i < photos.length; i++) {
+        markers[j] = new google.maps.Marker({
+            position: new google.maps.LatLng(lat, lng),
+            map: map,
+            icon: image
+        });
+        lat = lat + 0.1;
+        lng = lng + 0.1;
+        google.maps.event.addListener(markers[j], 'click', (function(marker, i) {
+            return function() {
+                console.log(photos[i].images.low_resolution.url,photos[i].images.standard_resolution.url,photos[i].link);
+                location = "";
+                var content = '<b>Source:</b>' + "Instagram" + '<br>'+
+                    '<b>Location:</b>' + location + '<br><br>' +
+                    '<img width="100" style="cursor: pointer" src="' + photos[i].images.low_resolution.url + '" onclick="on(\''+ photos[i].images.standard_resolution.url  + '\',\'' + photos[i].caption.text + '\',\'' +  "" + '\',\'' + photos[i].link + '\')" /><br>';
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            }
+        })(markers[j++], i));
+    }
 }
 
 function displayFilters(event) {
@@ -294,6 +349,7 @@ function displayFilters(event) {
             flickr.style.display = 'none';
             flickr.setAttribute('data-type','unchecked');
             server = '500px';
+            document.getElementById('instagram-in-progress').style.display = 'none';
         } else if (target.id === 'flickr') {
             px.style.display = 'none';
             px.setAttribute('data-type','unchecked');
@@ -303,6 +359,7 @@ function displayFilters(event) {
 
             flickr.style.display = 'block';
             flickr.setAttribute('data-type','checked');
+            document.getElementById('instagram-in-progress').style.display = 'none';
             server = 'flickr';
         } else if (target.id === 'instagram') {
             px.style.display = 'none';
@@ -314,6 +371,14 @@ function displayFilters(event) {
             flickr.style.display = 'none';
             flickr.setAttribute('data-type','unchecked');
             server = 'instagram';
+            if (instagramToken === 0) {
+                document.getElementById('instagram-filters').style.display = 'block';
+                document.getElementById('instagram-in-progress').style.display = 'none';
+            }
+            else {
+                document.getElementById('instagram-filters').style.display = 'none';
+                document.getElementById('instagram-in-progress').style.display = 'block';
+            }
         }
 
         //remove seleted filters
@@ -329,6 +394,26 @@ function displayFilters(event) {
         container.innerHTML = "";
     }
 }
+
+function getInstagramToken(code) {
+    var request = new XMLHttpRequest();
+    var url = "https://api.instagram.com/oauth/access_token";
+    request.open("POST", url);
+    var data = new FormData();
+    data.append('client_id', instagramClientId);
+    data.append('client_secret', instagramClientSecret);
+    data.append('grant_type', 'authorization_code');
+    data.append('redirect_uri', instagramRedirectURI);
+    data.append('code', code);
+    request.onloadend = function () {
+        var response = JSON.parse(this.response);
+        console.log(response);
+        instagramToken = response.access_token;
+        window.localStorage.setItem('instagramToken', instagramToken);
+    };
+    request.send(data);
+}
+
 
 function collapseFilter(event){
     var target = event.target;

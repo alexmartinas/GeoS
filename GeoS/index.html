@@ -398,7 +398,36 @@
 
                     </div>
 
-                    <div style="display: none" id="instagram-filters"></div>
+                    <div style="display: none" id="instagram-filters">
+                        <div class="filter">
+                            <div class="collapse-filter">Authentication
+                                <i class="fa fa-chevron-down collapse-button" onclick="collapseFilter(event)"></i>
+                            </div>
+                            <div class="filter-options">
+                                <a class="login-button" target="_parent" href="https://api.instagram.com/oauth/authorize/?client_id=a09387af147046f4b1bffb41fd63153e&redirect_uri=http://cliw-geos.s3-website-eu-west-1.amazonaws.com/GeoS/index.html&response_type=code
+">
+                                    Login to Instagram
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none" id="instagram-in-progress">
+                        <div class="filter">
+                            <div class="collapse-filter">Restriction
+                            </div>
+                            <div class="filter-options">
+                                <div class="in-progress">Only personal photos</div>
+                            </div>
+                        </div>
+                        <div class="filter">
+                            <div class="collapse-filter">Public content
+                            </div>
+                            <div class="filter-options">
+                                <img class="in-progress" src="img/Work_In_Progress.png" >
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
